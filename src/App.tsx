@@ -4,8 +4,30 @@ import { Table, TableBody, TableHead, TableHeader, TableRow, TableCell } from ".
 import { Car, HomeIcon, LogOutIcon, PlusCircle, Search, Settings } from "lucide-react";
 
 import Logo from "./assets/Logo.png"
+import { useState } from "react";
 
 export function App() {
+  
+  const [search, setSearch] = useState('');
+
+  const products = [
+    { id: 1, name: "Notebook", price: 3500, quantity: 10, type: "Eletrônico", validade: "2025-12-31", status: "Ativo" },
+    { id: 2, name: "Smartphone", price: 2000, quantity: 15, type: "Eletrônico", validade: "2025-06-15", status: "Ativo" },
+    { id: 3, name: "Teclado", price: 150, quantity: 25, type: "Periférico", validade: "2026-01-01", status: "Inativo" },
+    { id: 4, name: "Cadeira Gamer", price: 1200, quantity: 5, type: "Mobiliário", validade: "2027-05-10", status: "Ativo" },
+    { id: 5, name: "Mouse", price: 100, quantity: 30, type: "Periférico", validade: "2025-03-20", status: "Inativo" },
+  ];
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  }
+
+  const productFiltered = () => {
+    return products.filter((product) => 
+      product.name.toLowerCase().includes(search.toLowerCase())
+    );
+  };
+
   return (
     <div className="h-screen flex">
       {/* Sidebar */}
@@ -63,7 +85,7 @@ export function App() {
         
         {/* Barra de busca e botões */}
         <div className="flex justify-between items-center mb-6">
-          <Input name="nome" placeholder="Localizar produtos" className="w-3/4" />
+          <Input name="nome" placeholder="Localizar produtos" value={search} onChange={handleSearch} className="w-3/4" />
           <div className="flex gap-4">
             <Button className="flex items-center gap-1 bg-blue-700 hover:bg-green-600 text-white px-4 py-2 rounded">
               <PlusCircle className="w-5 h-5" />
@@ -81,7 +103,7 @@ export function App() {
           <Table className="min-w-full text-sm">
             <TableHeader>
               <TableRow className="bg-gray-200">
-                <TableHead>Produto</TableHead>
+                <TableHead>Produto</TableHead >
                 <TableHead>Preço</TableHead>
                 <TableHead>Quantidade</TableHead>
                 <TableHead>Tipo</TableHead>
@@ -90,24 +112,34 @@ export function App() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {Array.from({ length: 10 }).map((_, i) => {
-                return (
-                  <TableRow key={i} className="hover:bg-gray-100">
-                    <TableCell>Produto {i}</TableCell>
-                    <TableCell>R$ {(Math.random() * 100).toFixed(2)}</TableCell>
-                    <TableCell>{Math.floor(Math.random() * 50)}</TableCell>
-                    <TableCell>Tipo {i % 3}</TableCell>
-                    <TableCell>2025-01-20</TableCell>
+              {productFiltered().length > 0 ? (
+                productFiltered().map((product) => (
+                  <TableRow key={product.id} className="hover:bg-gray-100">
+                    <TableCell>{product.name}</TableCell>
+                    <TableCell>R$ {product.price.toFixed(2)}</TableCell>
+                    <TableCell>{product.quantity}</TableCell>
+                    <TableCell>{product.type}</TableCell>
+                    <TableCell>{product.validade}</TableCell>
                     <TableCell>
-                      {i % 2 === 0 ? (
-                        <span className="text-green-600">Ativo</span>
-                      ) : (
-                        <span className="text-red-600">Inativo</span>
-                      )}
+                      <span
+                        className={`${
+                          product.status === "Ativo"
+                            ? "text-green-600"
+                            : "text-red-600"
+                        }`}
+                      >
+                        {product.status}
+                      </span>
                     </TableCell>
                   </TableRow>
-                );
-              })}
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell colSpan="6" className="text-center py-4">
+                    Nenhum produto encontrado.
+                  </TableCell>
+                </TableRow>
+              )}
             </TableBody>
           </Table>
         </div>
