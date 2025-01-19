@@ -3,6 +3,8 @@ import { Button } from "./components/ui/button";
 import { Table, TableBody, TableHead, TableHeader, TableRow, TableCell } from "./components/ui/table";
 import { Car, HomeIcon, LogOutIcon, PlusCircle, Search, Settings } from "lucide-react";
 
+import Logo from "./assets/Logo.png"
+
 export function App() {
   return (
     <div className="h-screen flex">
@@ -16,12 +18,15 @@ export function App() {
           <li className="text-red-600 hover:text-red-800 cursor-pointer">Logout</li>
         </ul> */}
 
-        <h1 className="font-bold text-xl mb-6">Estoque DSJ</h1>
+        <div className="flex gap-3">
+          <img src={Logo} alt="logo" className="w-8 h-8 rounded-full" />
+          <h1 className="font-bold text-xl mb-9">ESTOQUE DSJ</h1>
+        </div>
 
         <nav className="flex flex-col gap-9 text-gray-700 font-bold">
           <a
             href="#"
-            className="flex items-center gap-2 hover:text-blue-600 cursor-pointer"
+            className="flex items-center gap-3 hover:text-blue-600 cursor-pointer"
           >
             <HomeIcon className="w-5 h-5" />
             Dashboard
@@ -29,7 +34,7 @@ export function App() {
 
           <a
             href="#"
-            className="flex items-center gap-2 hover:text-blue-600 cursor-pointer"
+            className="flex items-center gap-3 hover:text-blue-600 cursor-pointer"
           >
             <Car className="w-5 h-5" />
             Estoque
@@ -37,7 +42,7 @@ export function App() {
 
           <a
             href="#"
-            className="flex items-center gap-2 hover:text-blue-600 cursor-pointer"
+            className="flex items-center gap-3 hover:text-blue-600 cursor-pointer"
           >
             <Settings className="w-5 h-5" />
             Configurações
@@ -45,7 +50,7 @@ export function App() {
 
           <a
             href="#"
-            className="flex items-center gap-2 text-red-600 hover:text-red-800 cursor-pointer"
+            className="flex items-center gap-3 text-red-600 hover:text-red-800 cursor-pointer"
           >
             <LogOutIcon className="w-5 h-5" />
             Logout
