@@ -1,10 +1,12 @@
 import { Input } from "./components/ui/input";
 import { Button } from "./components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "./components/ui/dialog";
 import { Table, TableBody, TableHead, TableHeader, TableRow, TableCell } from "./components/ui/table";
 import { Car, HomeIcon, LogOutIcon, PlusCircle, Search, Settings } from "lucide-react";
 
 import Logo from "./assets/Logo.png"
 import { useState } from "react";
+import { Label } from "./components/ui/label";
 
 export function App() {
   
@@ -84,10 +86,62 @@ export function App() {
         <div className="flex justify-between items-center mb-6">
           <Input name="nome" placeholder="Localizar produtos" value={search} onChange={handleSearch} className="w-3/4" />
           <div className="flex gap-4">
-            <Button className="flex items-center gap-1 bg-blue-700 hover:bg-green-600 text-white px-4 py-2 rounded">
-              <PlusCircle className="w-5 h-5" />
-              Novo Produto
-            </Button>
+            
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="flex items-center gap-1 bg-blue-700 hover:bg-green-600 text-white px-4 py-2 rounded">
+                  <PlusCircle className="w-5 h-5" />
+                  Novo Produto
+                </Button>
+              </DialogTrigger>
+
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Novo produto</DialogTitle>
+                  <DialogDescription>Criar um novo produto no sistema</DialogDescription>
+                </DialogHeader>
+
+                <form action="" className="space-y-6">
+                  <div className="grid grid-cols-4 items-center text-right gap-3">
+                    <Label htmlFor="name">Produto</Label>
+                    <Input className="col-span-3" id="name" /> 
+                  </div>
+
+                  <div className="grid grid-cols-4 items-center text-right gap-3">
+                    <Label htmlFor="price">Preço</Label>
+                    <Input className="col-span-3" id="price" /> 
+                  </div>
+                  
+                  <div className="grid grid-cols-4 items-center text-right gap-3">
+                    <Label htmlFor="quantity">Quantidade</Label>
+                    <Input className="col-span-3" id="quantity" /> 
+                  </div>
+
+                  <div className="grid grid-cols-4 items-center text-right gap-3">
+                    <Label htmlFor="type">Tipo</Label>
+                    <Input className="col-span-3" id="type" /> 
+                  </div>
+
+                  <div className="grid grid-cols-4 items-center text-right gap-3">
+                    <Label htmlFor="validity">Data de validade</Label>
+                    <Input className="col-span-3" id="validity" type="date" /> 
+                  </div>
+
+                  <div className="grid grid-cols-4 items-center text-right gap-3">
+                    <Label htmlFor="status">Status</Label>
+                    <Input className="col-span-3" id="status"/> 
+                  </div>
+
+                  <DialogFooter>
+                    <DialogClose>
+                      <Button type="button" variant="destructive">Cancelar</Button>
+                    </DialogClose>
+                    <Button type="submit" className="bg-blue-700">Salvar</Button> 
+                  </DialogFooter>
+                </form>
+              </DialogContent>
+            </Dialog>
+
             <Button className="flex items-center gap-1 bg-white hover:bg-blue-600 text-gray-950 px-4 py-2 rounded">
               <Search className="w-5 h-5" />
               Filtrar
