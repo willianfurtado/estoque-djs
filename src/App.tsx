@@ -20,7 +20,7 @@ export function App() {
     { id: 7, name: "Maconha", price: 100, quantity: 30, type: "Periférico", validade: "2025-03-20", status: "Inativo" },
     { id: 8, name: "Cimento", price: 100, quantity: 30, type: "Construção", validade: "2025-03-20", status: "Inativo" },
     { id: 9, name: "Carne", price: 100, quantity: 30, type: "Periférico", validade: "2025-03-20", status: "Inativo" },
-    { id: 9, name: "Carne", price: 100, quantity: 30, type: "Periférico", validade: "2025-03-20", status: "Inativo" },
+    { id: 10, name: "Carne", price: 100, quantity: 30, type: "Periférico", validade: "2025-03-20", status: "Inativo" },
   ];
 
   const handleSearch = (e) => {
@@ -36,16 +36,16 @@ export function App() {
   return (
     <div className="h-screen flex">
       {/* Sidebar */}
-      <aside className="w-72 bg-gray-100 border-r p-10">
-        <div className="flex gap-3">
-          <img src={Logo} alt="logo" className="w-8 h-8 rounded-full" />
-          <h1 className="font-bold text-xl mb-9 text-">ESTOQUE DSJ</h1>
+      <aside className="w-72 bg-gray-100 border-r p-10 justify-center">
+        <div className="flex gap-3 justify-center">
+          <img src={Logo} alt="logo" className="w-10 h-10 rounded-full" />
+          <h1 className="font-bold text-xl mb-9 text-blue-600">ESTOQUE DSJ</h1>
         </div>
 
-        <nav className="flex flex-col gap-9 text-gray-700 font-bold">
+        <nav className="flex flex-col gap-9 text-gray-700 text-lg">
           <a
             href="#"
-            className="flex items-center gap-3 hover:text-blue-600 cursor-pointer"
+            className="flex items-center gap-4 hover:text-blue-600 cursor-pointer"
           >
             <HomeIcon className="w-5 h-5" />
             Dashboard
@@ -53,7 +53,7 @@ export function App() {
 
           <a
             href="#"
-            className="flex items-center gap-3 hover:text-blue-600 cursor-pointer"
+            className="flex items-center gap-4 hover:text-blue-600 cursor-pointer"
           >
             <Car className="w-5 h-5" />
             Estoque
@@ -61,7 +61,7 @@ export function App() {
 
           <a
             href="#"
-            className="flex items-center gap-3 hover:text-blue-600 cursor-pointer"
+            className="flex items-center gap-4 hover:text-blue-600 cursor-pointer"
           >
             <Settings className="w-5 h-5" />
             Configurações
@@ -69,7 +69,7 @@ export function App() {
 
           <a
             href="#"
-            className="flex items-center gap-3 text-red-600 hover:text-red-800 cursor-pointer"
+            className="flex items-center gap-4 text-red-600 hover:text-red-800 cursor-pointer"
           >
             <LogOutIcon className="w-5 h-5" />
             Logout
