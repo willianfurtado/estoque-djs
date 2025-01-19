@@ -11,11 +11,16 @@ export function App() {
   const [search, setSearch] = useState('');
 
   const products = [
-    { id: 1, name: "Notebook", price: 3500, quantity: 10, type: "Eletrônico", validade: "2025-12-31", status: "Ativo" },
-    { id: 2, name: "Smartphone", price: 2000, quantity: 15, type: "Eletrônico", validade: "2025-06-15", status: "Ativo" },
-    { id: 3, name: "Teclado", price: 150, quantity: 25, type: "Periférico", validade: "2026-01-01", status: "Inativo" },
+    { id: 1, name: "Minha ex", price: 35000, quantity: 10, type: "Rapariga", validade: "2025-12-31", status: "Ativo" },
+    { id: 2, name: "Duas do job", price: 2000, quantity: 2, type: "Job", validade: "2025-06-15", status: "Ativo" },
+    { id: 3, name: "Arroz", price: 100, quantity: 25, type: "Alimentação", validade: "2026-01-01", status: "Ativo" },
     { id: 4, name: "Cadeira Gamer", price: 1200, quantity: 5, type: "Mobiliário", validade: "2027-05-10", status: "Ativo" },
-    { id: 5, name: "Mouse", price: 100, quantity: 30, type: "Periférico", validade: "2025-03-20", status: "Inativo" },
+    { id: 5, name: "Fejão", price: 100, quantity: 30, type: "Periférico", validade: "2025-03-20", status: "Inativo" },
+    { id: 6, name: "Loló", price: 100, quantity: 30, type: "Periférico", validade: "2025-03-20", status: "Inativo" },
+    { id: 7, name: "Maconha", price: 100, quantity: 30, type: "Periférico", validade: "2025-03-20", status: "Inativo" },
+    { id: 8, name: "Cimento", price: 100, quantity: 30, type: "Construção", validade: "2025-03-20", status: "Inativo" },
+    { id: 9, name: "Carne", price: 100, quantity: 30, type: "Periférico", validade: "2025-03-20", status: "Inativo" },
+    { id: 9, name: "Carne", price: 100, quantity: 30, type: "Periférico", validade: "2025-03-20", status: "Inativo" },
   ];
 
   const handleSearch = (e) => {
@@ -32,17 +37,9 @@ export function App() {
     <div className="h-screen flex">
       {/* Sidebar */}
       <aside className="w-72 bg-gray-100 border-r p-10">
-        {/* <h1 className="font-bold text-xl mb-6">Estoque DSJ</h1>
-        <ul className="space-y-4 text-gray-700">
-          <li className="hover:text-blue-600 cursor-pointer">Dashboard</li>
-          <li className="hover:text-blue-600 cursor-pointer">Estoque</li>
-          <li className="hover:text-blue-600 cursor-pointer">Configurações</li>
-          <li className="text-red-600 hover:text-red-800 cursor-pointer">Logout</li>
-        </ul> */}
-
         <div className="flex gap-3">
           <img src={Logo} alt="logo" className="w-8 h-8 rounded-full" />
-          <h1 className="font-bold text-xl mb-9">ESTOQUE DSJ</h1>
+          <h1 className="font-bold text-xl mb-9 text-">ESTOQUE DSJ</h1>
         </div>
 
         <nav className="flex flex-col gap-9 text-gray-700 font-bold">
