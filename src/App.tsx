@@ -18,7 +18,7 @@ export function App() {
 
         <h1 className="font-bold text-xl mb-6">Estoque DSJ</h1>
 
-        <nav className="flex flex-col gap-4 text-gray-700">
+        <nav className="flex flex-col gap-9 text-gray-700 font-bold">
           <a
             href="#"
             className="flex items-center gap-2 hover:text-blue-600 cursor-pointer"
@@ -54,17 +54,17 @@ export function App() {
       </aside>
 
       {/* Conteúdo principal */}
-      <div className="flex-1 p-6">
+      <main className="flex-1 p-7">
         
         {/* Barra de busca e botões */}
         <div className="flex justify-between items-center mb-6">
           <Input name="nome" placeholder="Localizar produtos" className="w-3/4" />
           <div className="flex gap-4">
-            <Button className="flex items-center gap-1 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
+            <Button className="flex items-center gap-1 bg-blue-700 hover:bg-green-600 text-white px-4 py-2 rounded">
               <PlusCircle className="w-5 h-5" />
               Novo Produto
             </Button>
-            <Button className="flex items-center gap-1 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            <Button className="flex items-center gap-1 bg-white hover:bg-blue-600 text-gray-950 px-4 py-2 rounded">
               <Search className="w-5 h-5" />
               Filtrar
             </Button>
@@ -106,7 +106,7 @@ export function App() {
             </TableBody>
           </Table>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
