@@ -2,7 +2,7 @@ import { Input } from "./components/ui/input";
 import { Button } from "./components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "./components/ui/dialog";
 import { Table, TableBody, TableHead, TableHeader, TableRow, TableCell } from "./components/ui/table";
-import { Car, HomeIcon, LogOutIcon, PlusCircle, Search, Settings } from "lucide-react";
+import { ChartColumnIncreasing, Handshake, HomeIcon, LogOutIcon, Package, PlusCircle, Search, Settings, ShoppingCart, User } from "lucide-react";
 
 import Logo from "./assets/Logo.png"
 import { useState } from "react";
@@ -37,17 +37,18 @@ export function App() {
 
   return (
     <div className="h-screen flex">
+
       {/* Sidebar */}
-      <aside className="w-72 bg-gray-100 border-r p-10 justify-center">
+      <aside className="w-72 bg-gray-100 border-r p-10 flex flex-col item-center">
         <div className="flex gap-3 justify-center">
           <img src={Logo} alt="logo" className="w-10 h-10 rounded-full" />
           <h1 className="font-bold text-xl mb-9 text-blue-600">ESTOQUE DSJ</h1>
         </div>
 
-        <nav className="flex flex-col gap-9 text-gray-700 text-lg">
+        <nav className="flex flex-col gap-9 text-gray-600 text-base mt-3">
           <a
             href="#"
-            className="flex items-center gap-4 hover:text-blue-600 cursor-pointer"
+            className="flex items-center gap-4 hover:text-blue-600 cursor-pointer font-semibold"
           >
             <HomeIcon className="w-5 h-5" />
             Dashboard
@@ -55,15 +56,39 @@ export function App() {
 
           <a
             href="#"
-            className="flex items-center gap-4 hover:text-blue-600 cursor-pointer"
+            className="flex items-center gap-4 text-blue-600 hover:text-blue-500 cursor-pointer font-semibold"
           >
-            <Car className="w-5 h-5" />
+            <ShoppingCart className="w-5 h-5" />
             Estoque
           </a>
 
           <a
             href="#"
-            className="flex items-center gap-4 hover:text-blue-600 cursor-pointer"
+            className="flex items-center gap-4 hover:text-blue-600 cursor-pointer font-semibold"
+          >
+            <ChartColumnIncreasing className="w-5 h-5" />
+            Relatórios
+          </a>
+
+          <a
+            href="#"
+            className="flex items-center gap-4 hover:text-blue-600 cursor-pointer font-semibold"
+          >
+            <Handshake className="w-5 h-5" />
+            Fornecedores
+          </a>
+
+          <a
+            href="#"
+            className="flex items-center gap-4 hover:text-blue-600 cursor-pointer mb-40 font-semibold"
+          >
+            <Package className="w-5 h-5" />
+            Pedidos
+          </a>
+
+          <a
+            href="#"
+            className="flex items-center gap-4 hover:text-blue-600 cursor-pointer font-semibold"
           >
             <Settings className="w-5 h-5" />
             Configurações
@@ -71,7 +96,7 @@ export function App() {
 
           <a
             href="#"
-            className="flex items-center gap-4 text-red-600 hover:text-red-800 cursor-pointer"
+            className="flex items-center gap-4 text-red-600 hover:text-red-800 cursor-pointer font-semibold"
           >
             <LogOutIcon className="w-5 h-5" />
             Logout
@@ -82,14 +107,22 @@ export function App() {
       {/* Conteúdo principal */}
       <main className="flex-1 p-7">
         
+      <div className="flex items-center justify-between mb-5">
+        <h1 className="text-3xl font-bold text-gray-800">Produtos</h1>
+        <div className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full">
+          <User className="w-5 h-5 text-gray-600" />
+        </div>
+      </div>
+
+        
         {/* Barra de busca e botões */}
         <div className="flex justify-between items-center mb-6">
-          <Input name="nome" placeholder="Localizar produtos" value={search} onChange={handleSearch} className="w-3/4" />
+          <Input name="nome" placeholder="Localizar produtos" value={search} onChange={handleSearch} className="w-3/4 focus:outline-none focus:ring-2 focus:ring-blue-500" />
           <div className="flex gap-4">
             
             <Dialog>
               <DialogTrigger asChild>
-                <Button className="flex items-center gap-1 bg-blue-700 hover:bg-green-600 text-white px-4 py-2 rounded">
+                <Button className="flex items-center gap-1 bg-blue-700 hover:bg-blue-600 text-white px-4 py-2 rounded">
                   <PlusCircle className="w-5 h-5" />
                   Novo Produto
                 </Button>
@@ -142,7 +175,7 @@ export function App() {
               </DialogContent>
             </Dialog>
 
-            <Button className="flex items-center gap-1 bg-white hover:bg-blue-600 text-gray-950 px-4 py-2 rounded">
+            <Button className="flex items-center gap-1 bg-white hover:bg-blue-300 text-gray-950 px-4 py-2 rounded">
               <Search className="w-5 h-5" />
               Filtrar
             </Button>
